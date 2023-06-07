@@ -1,0 +1,123 @@
+/* Cajas con contenido de color */
+
+.box-blue {
+	margin:0 0 25px;
+	overflow:hidden;
+	padding:20px;
+	-webkit-border-radius: 10px;
+        border-radius: 10px;
+}
+
+.box-blue {
+	background-color:#e1e3ac;
+	border:1px solid #afcde3;
+}
+
+/*****************************************/
+
+body {
+  background-color: lightgrey; }
+
+#main-container {
+  margin: 20px auto;
+  max-width: 900px;  
+  height: 100%; }
+
+.block {
+  width: 31.33%;
+  min-width: none;
+  float: left;
+  margin: 1%; }
+
+.tablee.block {
+  min-width: 374px;  
+  max-height: 400px;
+}
+
+@media screen and (max-width: 640px) {
+  .block {
+    background-color: blue;
+    width: 47.9%; }
+    .block:first-child {
+      width: 98%;
+      background-color: red;
+      clear: both; }
+    .block:last-child {
+      width: 98%;
+      background-color: darkgreen;
+      clear: both; } }
+
+@media screen and (max-width: 640px) and (max-width: 320px) {
+  .block {
+    width: 98%; } }
+
+/********* Table ***************/
+#tablee {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+  }
+  
+  #tablee td, #tablee th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #tablee tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #tablee tr:hover {background-color: #ddd;}
+  
+  #tablee th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #648a64;
+    color: white;
+  }
+  /*********************/
+
+
+html,
+body {
+  font-family: Consolas, monaco, monospace;
+}
+
+.tableChart {
+  width: 100%;
+  height: 400px;
+}
+
+.charttitle {
+  text-align: center;
+  height: 30px;
+}
+
+.bars td {
+  vertical-align: bottom;
+}
+
+.bars div:hover {
+  opacity: 0.6;
+}
+
+.legend {
+  vertical-align: bottom;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.legbox {
+  display: block;
+  clear: both;
+}
+
+.xaxisname {
+  margin: 5px;
+  color: #fff;
+  font-size: 77%;
+  padding: 5px;
+  float: left;
+}
+
+.bar {
+  background: #213435;
+}

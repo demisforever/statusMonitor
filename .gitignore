@@ -1,0 +1,5 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+# The node_modules folder has a massive size (up to Gigabytes). It is easy to recreate the node_modules folder via packages. json. It is unnecessary to commit code that you didn't write (in most cases).
+node_modules
