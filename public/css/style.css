@@ -27,29 +27,16 @@ body {
   width: 31.33%;
   min-width: none;
   float: left;
-  margin: 1%; }
-
-.tablee.block {
+  margin: 1%;  
   min-width: 374px;  
-  max-height: 400px;
+  background-color: rgba(175, 181, 182, 0.589);
+  border-radius: 10px;
 }
 
-@media screen and (max-width: 640px) {
-  .block {
-    background-color: blue;
-    width: 47.9%; }
-    .block:first-child {
-      width: 98%;
-      background-color: red;
-      clear: both; }
-    .block:last-child {
-      width: 98%;
-      background-color: darkgreen;
-      clear: both; } }
-
-@media screen and (max-width: 640px) and (max-width: 320px) {
-  .block {
-    width: 98%; } }
+.tablee.block {
+  max-height: 410px;
+	padding-left:20px;
+}
 
 /********* Table ***************/
 #tablee {

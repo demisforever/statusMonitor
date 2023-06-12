@@ -1,0 +1,60 @@
+<div id="chart" class="block chart"></div>
+<% const [temperature,humidity]=data %>
+    <script>
+        const arrayData = JSON.parse('<%- JSON.stringify(data)%>');
+
+        // se asigna el mayor valor de temperatura
+        var maxTemperature = 0;
+        arrayData.forEach(element => {
+            if (element.temperature > maxTemperature) {
+                maxTemperature = element.temperature;
+            }
+        });
+
+        //chart data
+        var chartjson = {
+            "title": "Temperature",
+            "data": [],
+            "ymax": 77,
+            "ykey": 'temperature',
+            "prefix": "%"
+        }
+        chartjson.data = arrayData;
+
+        var chart = document.createElement('div');
+        //create the chart
+        var barchart = document.createElement('table');
+        barchart.setAttribute('class', 'tableChart');
+        //create the title row
+        var titlerow = document.createElement('tr');
+        //create the title data
+        var titledata = document.createElement('td');
+        //make the colspan to number of records
+        titledata.setAttribute('colspan', chartjson.data.length + 1);
+        titledata.setAttribute('class', 'charttitle');
+        titledata.innerText = chartjson.title;
+        titlerow.appendChild(titledata);
+        barchart.appendChild(titlerow);
+        chart.appendChild(barchart);
+
+        //create the bar row
+        var barrow = document.createElement('tr');
+
+        //lets add data to the chart
+        for (var i = 0; i < chartjson.data.length; i++) {
+            barrow.setAttribute('class', 'bars');
+            var prefix = chartjson.prefix || '';
+            //create the bar data
+            var bardata = document.createElement('td');
+            var bar = document.createElement('div');
+            bar.setAttribute('class', 'bar');
+            bar.style.height = chartjson.data[i][chartjson.ykey] + prefix;
+            bardata.innerText = chartjson.data[i][chartjson.ykey] + "°C";
+            bardata.appendChild(bar);
+            barrow.appendChild(bardata);
+        }
+
+        barchart.appendChild(barrow);
+        chart.appendChild(barchart);
+        document.getElementById('chart').innerHTML = chart.outerHTML;
+    </script>

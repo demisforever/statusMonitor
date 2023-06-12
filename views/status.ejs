@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <title>Monitor</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -11,104 +11,14 @@
     <main id="main-container">
         <div class="box-blue">
             Último reporte: <%= dateFormat.format(data[0].createdat,'YYYY/MM/DD HH:mm:ss') %>
-                <p>Temperatura: <%= data[0].temperature %>
-                        <p>
-                        </p>Humedad: <%= data[0].humidity %>
-                </p>
+            <p>Temperatura: <%= data[0].temperature %> </p>
+            <p>Humedad: <%= data[0].humidity %> </p>
         </div>
 
-        <div class="block tablee">
-            Historial
-            <table id="tablee">
-                <tr>
-                    <th>Createdat</th>
-                    <th>Humidity</th>
-                    <th>Temperature</th>
-                </tr>
-                <% if (data) { %>
-                    <% for(var i=0; i < data.length; i++) { %>
-                        <tr>
-                            <td>
-                                <%= dateFormat.format(data[i].createdat,'YYYY/MM/DD HH:mm:ss') %>
-                            </td>
-                            <td>
-                                <%= data[i].humidity %>
-                            </td>
-                            <td>
-                                <%= data[i].temperature %>
-                            </td>
-                        </tr>
-                        <% } %>
-                            <% } %>
-            </table>
-        </div>
-
-        <div id="chart" class="block chart"></div>
-        <% const [temperature,humidity]=data %>
-            <script>
-                const arrayData = JSON.parse('<%- JSON.stringify(data)%>');
-
-                //chart data
-                var chartjson = {
-                    "title": "Temperature",
-                    "data": [],
-                    "ymax": 100,
-                    "ykey": 'temperature',
-                    "prefix": "%"
-                }
-                chartjson.data = arrayData;
-                // se asigna el mayor valor de temperatura
-                var maxTemperature = 0;
-                arrayData.forEach(element => {
-                    if (element.temperature > maxTemperature) {
-                        maxTemperature = element.temperature;
-                    }
-                });
-                chartjson.ymax = maxTemperature;
-
-
-
-                var chart = document.createElement('div');
-                //create the chart canvas
-                var barchart = document.createElement('table');
-                barchart.setAttribute('class', 'tableChart');
-                //create the title row
-                var titlerow = document.createElement('tr');
-                //create the title data
-                var titledata = document.createElement('td');
-                //make the colspan to number of records
-                titledata.setAttribute('colspan', chartjson.data.length + 1);
-                titledata.setAttribute('class', 'charttitle');
-                titledata.innerText = chartjson.title;
-                titlerow.appendChild(titledata);
-                barchart.appendChild(titlerow);
-                chart.appendChild(barchart);
-
-                //create the bar row
-                var barrow = document.createElement('tr');
-
-                //lets add data to the chart
-                for (var i = 0; i < chartjson.data.length; i++) {
-                    barrow.setAttribute('class', 'bars');
-                    var prefix = chartjson.prefix || '';
-                    //create the bar data
-                    var bardata = document.createElement('td');
-                    var bar = document.createElement('div');
-                    bar.setAttribute('class', 'bar');
-                    bar.style.height = chartjson.data[i][chartjson.ykey] + prefix;
-                    bardata.innerText = chartjson.data[i][chartjson.ykey] + "°C";
-                    bardata.appendChild(bar);
-                    barrow.appendChild(bardata);
-                }
-
-                barchart.appendChild(barrow);
-                chart.appendChild(barchart);
-                document.getElementById('chart').innerHTML = chart.outerHTML;
-            </script>
+        <%- include('partials/historialTable.ejs') %>
+        <%- include('partials/barchart.ejs') %>
 
     </main>
-
-
 </body>
 
 </html>

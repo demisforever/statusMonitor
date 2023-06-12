@@ -1,0 +1,25 @@
+<div class="block tablee">
+    Historial
+    <table id="tablee">
+        <tr>
+            <th>Createdat</th>
+            <th>Humidity</th>
+            <th>Temperature</th>
+        </tr>
+        <% if (data) { %>
+            <% for(var i=0; i < data.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= dateFormat.format(data[i].createdat,'YYYY/MM/DD HH:mm:ss') %>
+                    </td>
+                    <td>
+                        <%= data[i].humidity %>
+                    </td>
+                    <td>
+                        <%= data[i].temperature %>
+                    </td>
+                </tr>
+                <% } %>
+            <% } %>
+    </table>
+</div>

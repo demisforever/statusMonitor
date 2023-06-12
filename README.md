@@ -4,3 +4,6 @@ The project was developed in Node.js with the aim of providing information on te
 
 ## Installation
 npm install
+
+
+In this project I use .ejs to facilitate the use of the different views.
