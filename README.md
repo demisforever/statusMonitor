@@ -7,3 +7,6 @@ npm install
 
 
 In this project I use .ejs to facilitate the use of the different views.
+
+## URL available
+// http://localhost:3000/humidity/10/temperature/20

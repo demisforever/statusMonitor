@@ -10,9 +10,9 @@
 
     <main id="main-container">
         <div class="box-blue">
-            Último reporte: <%= dateFormat.format(data[0].createdat,'YYYY/MM/DD HH:mm:ss') %>
-            <p>Temperatura: <%= data[0].temperature %> </p>
-            <p>Humedad: <%= data[0].humidity %> </p>
+            Last report: <%= dateFormat.format(data[0].createdat,'YYYY/MM/DD HH:mm:ss') %>
+            <p>Temperature: <%= data[0].temperature %> </p>
+            <p>Humidity: <%= data[0].humidity %> </p>
         </div>
 
         <%- include('partials/historialTable.ejs') %>
