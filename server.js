@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
-const port = 3000;
+const port = 8080;
 const dateFormat = require('date-and-time')
 
 app.use(express.static("public"));
@@ -43,7 +43,7 @@ const server = app.listen(port, () => {
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-// http://localhost:3000/humidity/10/temperature/20
+// http://localhost:8080/humidity/10/temperature/20
 app.get("/humidity/:humidity/temperature/:temperature", (req, res) => {
   const humidity = req.params.humidity;
   const temperature = req.params.temperature;
